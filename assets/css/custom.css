@@ -21574,6 +21574,11 @@ html.menu-opened body {
   width: 100%;
   margin: 0 auto;
 }
+.login-right .inner-right-login-36 {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+}
 .login-right .country-select .select-col .select2-container--default .select2-selection--single {
   background-color: #ffffff;
   border-radius: 10px 0 0 10px;

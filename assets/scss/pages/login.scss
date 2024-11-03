@@ -28,6 +28,11 @@
     width: $__full__width;
     @include margin-padding(0 auto, null);
   }
+    .inner-right-login-36 {
+    max-width: 1500px;
+    width: $__full__width;
+    @include margin-padding(0 auto, null);
+  }
   .country-select {
     .select-col {
       .select2-container--default {

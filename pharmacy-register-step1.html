@@ -3,7 +3,7 @@
 	<head>
 
 		<meta charset="utf-8">
-		<title>Doccure</title>
+		<title>Pharmacy Register | 32daantokiseva</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="The responsive professional Doccure template offers many features, like scheduling appointments with  top doctors, clinics, and hospitals via voice, video call & chat.">
 		<meta name="keywords" content="practo clone, doccure, doctor appointment, Practo clone html template, doctor booking template">
@@ -55,16 +55,17 @@
 										<div class="logo-icon">
 											<img src="assets/img/logo.png" alt="doccure-logo">
 										</div>
-										<div class="step-list">
+										<!--<div class="step-list">
 											<ul>
 												<li><a href="#" class="active">1</a></li>
 												<li><a href="#">2</a></li>
 												<li><a href="#">3</a></li>
 											</ul>
-										</div>
+										</div>-->
 										<form id="profile_pic_form" enctype="multipart/form-data">  
 											<div class="profile-pic-col">
-												<h3>Profile Picture</h3>
+												<h3>Pharmacy Registration</h3>
+												<h4>Profile Picture</h4>
 												<div class="profile-pic-upload">
 													<div class="cam-col">
 														<img src="assets/img/icons/camera.svg" id="prof-avatar" alt="camera-image" class="img-fluid">
@@ -73,9 +74,122 @@
 													<input type="file" id="profile_image" name="profile_image">
 												</div>
 											</div>
-											<div class="mt-5">
+											<!--<div class="mt-5">
 												<a href="pharmacy-register-step2.html" class="btn btn-primary w-100 btn-lg login-btn step1_submit">continue </a>
+											</div>-->
+											<h3 class="my-4">Your Location</h3>
+				                        	<div class="mb-3">
+												<label class="mb-2">Select City</label>
+												<select class="form-select form-control" id="heart_rate" name="heart_rate" tabindex="-1" aria-hidden="true">
+													<option value="">Select Your City</option>
+													<option value="1">City 1</option>
+													<option value="2">City 2</option>
+												</select>
 											</div>
+											<div class="mb-3">
+												<label class="mb-2">Select State</label>
+												<select class="form-select form-control" id="bp" name="bp" tabindex="-1" aria-hidden="true">
+													<option value="">Select Your State</option>
+													<option value="1">State 1</option>
+													<option value="2">State 2</option>
+												</select>
+											</div>
+							                <!--<div class="mt-5">
+					                        	<a href="pharmacy-register-step3.html" class="btn btn-primary w-100 btn-lg login-btn step5_submit">Continue</a>
+					                        </div>-->
+											<div class="pregnant-col pt-4">
+						                    	<div>
+						                            <div class="remember-me-col d-flex justify-content-between">
+						                            	<span class="mt-1">Are you Registered</span>
+						                                <label class="custom_check">
+						                                    <input type="checkbox" class="form-control" id="is_registered" name="pregnant" value="1">
+						                                    <span class="checkmark"></span>
+						                                </label>
+						                            </div>
+						                        </div>
+						                    </div>
+						                    <div class="step-process-col mt-4">
+							                    <div class="mb-3" id="preg_div" style="display: none;">
+							                    	<label class="mb-2">How Many Years you have been Registered?</label>
+							                    	<select class="form-select form-control" id="preg_term" name="preg_term" tabindex="-1" aria-hidden="true">
+							                    		<option value="">Select year</option>
+							                    		<option value="1">1</option>
+							                    		<option value="2">2</option>
+							                    		<option value="3">3</option>
+							                    		<option value="4">4</option>
+							                    		<option value="5">5</option>
+							                    		<option value="6">6</option>
+							                    		<option value="7">7</option>
+							                    		<option value="8">8</option>
+							                    		<option value="9">9</option>
+							                    		<option value="10">10</option>
+							                    	</select>
+							                    </div>
+							                     <div class="mb-3">
+							                    	<label class="mb-2">Address line 1</label>
+							                    	<input type="text" placeholder="Address line 1" class="form-control" id="address1" value="" name="address1">
+							                    </div>
+							                    <div class="mb-3">
+							                    	<label class="mb-2">Address line 2</label>
+							                    	<input type="text" placeholder="Address line 2" class="form-control" id="address2" value="" name="address2">
+							                    </div>
+							                    <div class="mb-3">
+							                    	<label class="mb-2">Postal/Zip code</label>
+							                    	<input type="text" placeholder="Postal/Zip code" class="form-control" id="postal" value="" name="postal">
+							                    </div>
+							                    <div class="mb-3">
+							                    	<label class="mb-2">Certification and Employer</label>
+							                    	<div class="row justify-content-center">
+										                 <div class="profile-pic-upload d-flex flex-wrap  justify-content-center">
+							                        		<div class="cam-col">
+							                        			<img src="assets/img/icons/camera.svg" alt="camera-image">
+							                        		</div>
+							                        		<span class="text-center">Upload Rigth To sell Certigifcate</span>
+							                        		<input type="file" id="right_to_sell" name="right_to_sell">
+							                        	</div>
+				                        	      		<div class="profile-pic-upload d-flex flex-wrap  justify-content-center">
+							                        		<div class="cam-col">
+							                        			<img src="assets/img/icons/camera.svg" alt="camera-image">
+							                        		</div>
+							                        		<span class="text-center">Upload Photo ID</span>
+							                        		<input type="file" id="photo_id" name="photo_id">
+							                        	</div>
+				                        	      		<div class="profile-pic-upload d-flex flex-wrap  justify-content-center">
+							                        		<div class="cam-col">
+							                        			<img src="assets/img/icons/camera.svg" alt="camera-image">
+							                        		</div>
+							                        		<span class="text-center">Upload Clinical employment</span>
+							                        		<input type="file" id="c_employment" name="c_employment">
+							                        	</div>
+							                        </div>
+							                    </div>
+							                    <div class="checklist-col pregnant-col">
+						                            <div class="remember-me-col d-flex justify-content-between">
+						                            	<span class="mt-1">Do you Deliver?</span>
+						                                <label class="custom_check mb-3">
+                                                            <input type="checkbox" class="form-control" name="deliver" id="deliver" value="1">
+                                                            <span class="checkmark"></span>
+						                                </label>
+						                            </div>
+						                            <div class="remember-me-col d-flex justify-content-between">
+						                            	<span class="mt-1">Do you Offer appoinment?</span>
+						                                <label class="custom_check mb-3">
+                                                            <input type="checkbox" class="form-control" name="appoinment" id="appoinment" value="1">
+                                                            <span class="checkmark"></span>
+						                                </label>
+						                            </div>
+						                            <div class="remember-me-col d-flex justify-content-between">
+						                            	<span class="mt-1">Do you honour free prescription?</span>
+						                                <label class="custom_check mb-3">
+                                                            <input type="checkbox" class="form-control" name="prescription" id="prescription" value="1">
+                                                            <span class="checkmark"></span>
+						                                </label>
+						                            </div>
+						                        </div>
+						                	</div>
+					                        <div class="mt-5">
+					                        	<a href="pharmacy-index.html" class="btn btn-primary w-100 btn-lg login-btn step2_submit" id="step2_button" >Update </a>
+					                        </div>
 										</form>
 									</div>
 								</div>

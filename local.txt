@@ -1,0 +1,70 @@
+Dental specialist 
+
+1 . Oral Medicine & Radiologist
+2 . Oral and Maxillofacial Surgeon
+3 . Periodontist
+4 . Prosthodontist
+5 . Pedodontist
+6 . Oral Pathologist
+7. Orthodontist
+8. Endodontist
+9. General Dentist
+10. Dental Implantologist
+
+Dental treatment : 
+
+1. Teeth Cleaning
+2. X-Rays
+3. Fillings
+4. Root Canal Treatment
+5. Tooth Extractions
+6. Sealants
+7. Fluoride Treatments
+8. Dental Bonding
+9. Veneers
+10. Teeth Whitening
+11.Aligners
+12. Crowns
+13. Bridges
+14. Implants
+15. Braces
+16. Gum Reshaping
+17. Dentures
+18. Children’s Dentistry
+19. Inlays
+20. Onlays
+21. Enamel Shaping
+22. Soft Tissue Grafts
+23. Gum Grafting
+24. Tooth Sensitivity Treatments
+25. Oral Cancer Screenings
+26. Night Guards
+27. Sports Mouthguards
+28. Wisdom Teeth Removal
+29. Sinus Lift Procedure
+30. Bone Grafting
+31. Pulpotomy
+32. Periodontal Scaling and Root Planing
+33. Periodontal Surgery
+34. Dental Emergencies Treatment
+35. Sedation Dentistry
+36. Full Mouth Reconstruction
+37. Cosmetic Gum Surgery
+38. Dental Implant Maintenance
+39. Temporary Crowns
+40. Orthognathic Surgery (Jaw Surgery)
+41. Retainers
+42. Tooth Bonding for Chipped Teeth
+43. Apicoectomy (Root-End Surgery)
+44. Frenectomy (Removal of Frenulum)
+45. Oral Hygiene Instruction
+46. Salivary Gland Treatment
+47. Cleft Lip and Palate Treatment
+48. Laser Dentistry
+49. Computer-Guided Implant Surgery
+50. Dental Photography for Treatment Planning
+51. Nutritional Counseling for Oral Health
+52. TMD (Temporomandibular Disorder) Treatment
+53. Oral Sedation
+54. Nitrous Oxide Sedation (Laughing Gas)
+55. Custom Mouthguards for Sleep Apnea

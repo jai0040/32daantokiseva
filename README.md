@@ -59,3 +59,27 @@ Doctor Profile
 Social Media
 
 Change Password
+Logout
+
+============================================================================================================================
+--- > Patient Panel < ---
+
+Patient-dashboard 
+	Show Health Records from Medical Details
+	Upcoming Appointment list
+	Past Appointments
+	List of Dependants
+	Summary (Appointments, Invoices, Prescriptions)
+
+
+
+Patient Appointments	
+Upcoming, Cancelled, Completed
+Favourites Doctors
+Dependants (Family members)
+Records (Reports)
+Invoices
+Profile Settings
+Medical Details
+Change Password
+Logout

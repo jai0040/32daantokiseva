@@ -44,29 +44,29 @@ Speciality & Services - Done
 	Add About Service (Descriptions) - Done
 	
 Reviews
-	Reviews List
-	Reviews Filter (Date)
+	Reviews List - Done
+	Reviews Filter (Date) - Done
 
 Invoices
-	List of Invoices -> Download
+	List of Invoices -> Download - Done
 
 Payout Settings
-	Payment Getaway 1).Payment Online 2). Payment Cash
-	List of payment
+	Payment Getaway 1).Payment Online 2). Payment Cash - Done
+	List of payment - Done
 
 Doctor Profile
-	Basic details 
-	Experience
-	Education
-	Awards
-	Insurance
-	Clinics
-	Business Hours
+	Basic details  - Done
+	Experience - Done
+	Education - Done
+	Awards - Done
+	Insurance - Done
+	Clinics - Done
+	Business Hours - Done
 
-Social Media
+Social Media  - Done
 
-Change Password
-Logout
+Change Password - Done
+Logout - Done
 
 ============================================================================================================================
 --- > Patient Panel < ---

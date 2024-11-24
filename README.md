@@ -13,10 +13,10 @@ doctor-dashboard
 	Recent Invoices  - Done
 
 Requests
-	Show appointments list (APPROVE & CANCEL)
+	Show appointments list (APPROVE & CANCEL) - Done
 
 Appointments
-	show Appointment List -> 1). Patient Details
+	show Appointment List -> 1). Patient Details - Done
 				 2). Start Session (Start Check-up)
 Available Timings
 	1). General Availability

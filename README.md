@@ -17,31 +17,31 @@ Requests
 
 Appointments
 	show Appointment List -> 1). Patient Details - Done
-				 2). Start Session (Start Check-up)
-Available Timings
-	1). General Availability
-		Select Available Slots
-			Select Available days -> Days
-			1). Add Slots -> Start Time, End Time, Appointment Intervals, Appointment Durations
-			2).Delete Slots
-			Appointment Fees
-	2). Clinic Availability
-		Select Clinic -> List of doctor Clinics
-		Select Available Slots
-			Select Available days -> Days
-			1). Add Slots -> Start Time, End Time, Appointment Intervals, Appointment Durations
-			2).Delete Slots
-			Appointment Fees
+				 2). Start Session (Start Check-up) - Done
+Available Timings - Done
+	1). General Availability - Done
+		Select Available Slots - Done
+			Select Available days -> Days - Done
+			1). Add Slots -> Start Time, End Time, Appointment Intervals, Appointment Durations - Done
+			2).Delete Slots - Done
+			Appointment Fees - Done
+	2). Clinic Availability - Done
+		Select Clinic -> List of doctor Clinics - Done
+		Select Available Slots - Done
+			Select Available days -> Days - Done
+			1). Add Slots -> Start Time, End Time, Appointment Intervals, Appointment Durations - Done
+			2).Delete Slots - Done
+			Appointment Fees - Done
 
 My Patients
-	1). Active 2). InActive -> Show patients list 
-	2). InActive (After 24 hours appointments delete)
+	1). Active 2). InActive -> Show patients list  - Done
+	2). InActive (After 24 hours appointments delete) - Done
 
-Speciality & Services
-	Add Specialty -> List of doctor Speciality
-	Add  Service -> List of doctor Service
-	Add Price
-	Add About Service (Descriptions)
+Speciality & Services - Done
+	Add Specialty -> List of doctor Speciality  - Done
+	Add  Service -> List of doctor Service - Done
+	Add Price - Done
+	Add About Service (Descriptions) - Done
 	
 Reviews
 	Reviews List

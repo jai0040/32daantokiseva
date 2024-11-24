@@ -55,6 +55,13 @@ Payout Settings
 	List of payment
 
 Doctor Profile
+	Basic details 
+	Experience
+	Education
+	Awards
+	Insurance
+	Clinics
+	Business Hours
 
 Social Media
 
@@ -73,13 +80,62 @@ Patient-dashboard
 
 
 
-Patient Appointments	
-Upcoming, Cancelled, Completed
+My Appointments	
+Show list of Appointments
+	1). Upcoming, 
+	2). Cancelled, 
+	3). Completed.
+
 Favourites Doctors
+	Show list of doctors 
+
 Dependants (Family members)
+	Add or See family members list
+		
+		Add Dependants
+		1).Name 2). Relationship 3). DOB 4). Select Gender 5). Blood Group
+		Button for Save or Edit
+		
 Records (Reports)
+	Show lift of reports & Prescriptions
+	Add report
+		Title
+		Select Patient name it's come from dependants
+		Report Date
+		Hospital Name or Laboratory name
+		Symptoms
+		Report (Add photo or pdf)
+			Button for Save or Edit
+
 Invoices
+	Show Invoices of patients
+	
 Profile Settings
+	Patient photo (add or remove)
+	Information
+		First Name 
+		Last Name
+		Date of Birth 
+		Phone Number 
+		Email Address 
+		Blood Group 
+	Address
+		Address
+		City
+		State
+		Country
+		Pincode 
+	Button for Save or Edit
+
 Medical Details
+	List of patient 
+	Add Medical Details
+		BMI
+		Heart Rate
+		Weight
+		FBC
+		Date of add details
+	Button for Save or Edit
+
 Change Password
 Logout

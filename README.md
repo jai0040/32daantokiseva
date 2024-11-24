@@ -5,12 +5,12 @@ Index near by doctor search -> Show doctor list -> Book appointment -> send 2 me
 
 --- > Doctor Panel < ---
 doctor-dashboard 
-	Total Patient
-	Patients Today 
-	Appointments Today
-	Show appointments list (APPROVE & CANCEL)
-	show Upcoming Appointment List
-	Recent Invoices
+	Total Patient - Done
+	Patients Today  - Done
+	Appointments Today - Done
+	Show appointments list (APPROVE & CANCEL)  - Done
+	show Upcoming Appointment List  - Done
+	Recent Invoices  - Done
 
 Requests
 	Show appointments list (APPROVE & CANCEL)

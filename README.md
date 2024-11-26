@@ -96,7 +96,7 @@ Dependants (Family members)
 		1).Name 2). Relationship 3). DOB 4). Select Gender 5). Blood Group
 		Button for Save or Edit
 		
-Records (Reports)
+Add medical records (Reports)
 	Show lift of reports & Prescriptions
 	Add report
 		Title

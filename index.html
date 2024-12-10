@@ -419,10 +419,12 @@
 					</div>
 					<ul class="nav header-navbar-rht">
 						<li class="register-btn">
-							<a href="register.html" class="btn reg-btn"><i class="feather-user"></i>Register</a>
+							<button id="OptionSignupID" class="btn reg-btn" onclick="window.location.href='/option-signup'">
+								    <i class="feather-user"></i> Register
+								</button>
 						</li>
-						<li class="register-btn">
-							<a href="login.html" class="btn btn-primary log-btn"><i class="feather-lock"></i>Login</a>
+						<li class="register-btn"X>
+							<a href="/login-phone" class="btn btn-primary log-btn"><i class="feather-lock"></i>Login</a>
 						</li>
 					</ul>
 				</nav>
@@ -445,33 +447,26 @@
 							</div>
 						</div>
 						<div class="search-box-one aos" data-aos="fade-up">
-							<form action="search-2.html">
-								<div class="search-input search-line">
-									<i class="feather-search bficon"></i>
-									<div class=" mb-0">
-										<input type="text" class="form-control"
-											placeholder="Search doctors, clinics, hospitals, etc">
-									</div>
-								</div>
-								<div class="search-input search-map-line">
-									<i class="feather-map-pin"></i>
-									<div class=" mb-0">
-										<input type="text" class="form-control" placeholder="Location">
-										<a class="current-loc-icon current_location" href="javascript:void(0);">
-											<i class="feather-crosshair"></i>
-										</a>
-									</div>
-								</div>
-								<div class="search-input search-calendar-line">
-									<i class="feather-calendar"></i>
-									<div class=" mb-0">
-										<input type="text" class="form-control datetimepicker" placeholder="Date">
-									</div>
-								</div>
-								<div class="form-search-btn">
-									<button class="btn" type="submit">Search</button>
-								</div>
-							</form>
+							<form id="searchForm" onsubmit="sendLocation(event)">
+								    <div class="search-input search-line">
+								        <i class="feather-search bficon"></i>
+								        <div class="mb-0">
+								            <input type="text" class="form-control" id="doctor-query" name="doctor-query" placeholder="Search doctors, clinics, hospitals, etc" required>
+								        </div>
+								    </div>
+								    <div class="search-input search-map-line">
+								        <i class="feather-map-pin"></i>
+								        <div class="mb-0">
+								            <input type="text" class="form-control" id="location-input" name="location-input" placeholder="Location" required>
+								            <a class="current-loc-icon current_location" href="javascript:void(0);" onclick="sendLocation(event);">
+								                <i class="feather-crosshair"></i>
+								            </a>
+								        </div>
+								    </div>
+								    <div class="form-search-btn">
+								        <button class="btn" type="submit">Search</button>
+								    </div>
+								</form>
 						</div>
 					</div>
 					<div class="col-lg-6">
@@ -1794,6 +1789,61 @@
 	<!-- Custom JS -->
 	<script src="assets/js/script.js"></script>
 
+	<script>
+		function sendLocation(event) {
+			event.preventDefault(); // Prevent form submission until location is added
+
+			const form = document.getElementById('searchForm'); // Get the form element directly
+
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(
+					(position) => {
+						// Get latitude and longitude
+						const latitude = position.coords.latitude;
+						const longitude = position.coords.longitude;
+
+						alert("LATITUDE: " + latitude);
+						alert("LONGITUDE: " + longitude);
+
+						// Prepare the data to send
+						const formData = new FormData(form); // Now it correctly refers to the form element
+						const data = {
+							query: formData.get('doctor-query'), // Get doctor query from input
+							location: formData.get('location-input'), // Get location from input
+							latitude: latitude, // Add latitude
+							longitude: longitude // Add longitude
+						};
+
+						// Send the data to the server
+						fetch('/searchDoctors', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json' // Set the content type to JSON
+							},
+							body: JSON.stringify(data) // Convert data to JSON
+						})
+						.then(response => {
+							if (response.ok) {
+								return response.text(); // Process the response if needed
+							}
+							throw new Error('Network response was not ok.');
+						})
+						.then(data => {
+							console.log(data); // Log the response from the server
+						})
+						.catch(error => {
+							console.error('There has been a problem with your fetch operation:', error);
+						});
+					},
+					(error) => {
+						alert("Unable to retrieve your location.");
+					}
+				);
+			} else {
+				alert("Geolocation is not supported by your browser.");
+			}
+		}
+	</script>
 </body>
 
 </html>

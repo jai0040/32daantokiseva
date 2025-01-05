@@ -4,7 +4,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Doccure</title>
+	<title>Doctors Search | 32 Daanto ki Seva</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="The responsive professional Doccure template offers many features, like scheduling appointments with  top doctors, clinics, and hospitals via voice, video call & chat.">
 	<meta name="keywords" content="practo clone, doccure, doctor appointment, Practo clone html template, doctor booking template">
@@ -46,467 +46,98 @@
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="assets/css/custom.css">
 
-			 <style>
-			        /* Modal Background */
-			        /* Separator Line Between Date and Time */
-	.separator-line {
-	    height: 100%;
-	    width: 1px;
-	    background-color: #ccc;
-	    margin: 0 auto;
-	}
-	
-	/* Responsive Adjustments for Two-Column Layout */
-	@media (max-width: 768px) {
-	    .row .col-md-5, .row .col-md-6 {
-	        flex: 100%;
-	        max-width: 100%;
-	    }
-	
-	    .separator-line {
-	        display: none; /* Hide separator on small screens */
-	    }
-	}
-				        
-				        
-			        #popupModal {
-			            display: none;
-			            position: fixed;
-			            z-index: 1050;
-			            left: 0;
-			            top: 0;
-			            width: 100%;
-			            height: 100%;
-			            background-color: rgba(0, 0, 0, 0.5);
-			            overflow: hidden; /* Prevent body scroll */
-			        }
-			
-			        /* Modal Content (Centered Popup) */
-			        #popupContent {
-			            position: absolute;
-			            top: 56%;
-			            left: 50%;
-			            transform: translate(-50%, -50%);
-			            padding: 20px;
-			            background: white;
-			            border-radius: 10px;
-			            width: 90%; /* Default width for small screens */
-			            max-width: 600px; /* Limit max width for larger screens */
-			            max-height: 80%; /* Restrict height to allow scrolling */
-			            overflow-y: auto; /* Enable scrolling inside the popup */
-			            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-			        }
-			
-			        .close-btn {
-			            float: right;
-			            font-size: 1.5rem;
-			            font-weight: bold;
-			            cursor: pointer;
-			        }
-			
-			        #delayedButton {
-			            display: none; /* Hide button initially */
-			        }
-			
-			        /* Responsive Adjustments */
-			        @media (min-width: 768px) {
-			            #popupContent {
-			                width: 70%; /* Wider width for tablets and up */
-			            }
-			        }
-			
-			        @media (min-width: 1024px) {
-			            #popupContent {
-			                width: 100%; /* Even wider for large screens */
-			            }
-			        }
-			    </style>
-			 <style>
-			    #confirmationText {
-			      display: none;
-			      margin-top: 15px;
-			      font-weight: bold;
-			      color: #007bff;
-			      text-align: center;
-			    }
-			
-			    .btn-slot.active {
-			      background: linear-gradient(to right, #00bfff, #007bff); /* Gradient when active */
-			      color: white !important;
-			    }
-			
-			    .btn-slot {
-			      border: 2px solid #007bff;
-			      padding: 10px 20px;
-			      border-radius: 5px;
-			      font-size: 14px;
-			      transition: background 0.3s ease, color 0.3s ease;
-			    }
-			
-			.btn-outline-primary {
-			    border: 2px solid #20c0f3
-			}
-			    .btn-slot:hover {
-			      background-color: #007bff;
-			      color: white;
-			    }
-			  </style>
-					<style>
-			    .otp-inputs {
-			        display: flex;
-			        gap: 10px;
-			        justify-content: center;
-			    }
-			
-			    .otp-block {
-			        width: 50px;
-			        height: 50px;
-			        text-align: center;
-			        font-size: 1.5rem;
-			        border: 1px solid #ddd;
-			        border-radius: 5px;
-			    }
-			
-			    #sendOtpBtn {
-			        background-color: #007bff;
-			        color: white;
-			        border: 2px solid #20c0f3
-			    }
-			
-			    #sendOtpBtn.disabled {
-			        background-color: #cccccc;
-			        color: #888888;
-			    }
-				    .specialty-box {
-				        display: inline-block;
-				        background-color: #f0f0f0; /* Light background color */
-				        padding: 5px 15px; /* Padding inside the box */
-				        margin: 5px; /* Space between boxes */
-				        border-radius: 15px; /* Rounded corners */
-				        font-size: 14px; /* Font size */
-				        font-weight: bold; /* Bold text */
-				        color: #333; /* Text color */
-				        box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow */
-				        text-transform: capitalize; /* Capitalize the first letter of each word */
-				    }
-				</style>
-			</head>
-			
-					    <script>
-							        // Function to show the popup
-							     // Function to show the popup and freeze background scroll
-							    function showPopup() {
-							        document.getElementById('popupModal').style.display = 'block';
-							        document.body.classList.add('no-scroll'); // Add class to freeze scroll
-							    }
-							
-							    // Function to hide the popup and unfreeze background scroll
-							    function hidePopup() {
-							        document.getElementById('popupModal').style.display = 'none';
-							        document.body.classList.remove('no-scroll'); // Remove class to unfreeze scroll
-							    }
-					    </script>  
-						<script>
-						    document.addEventListener("DOMContentLoaded", () => {
-						      const timeSlots = [
-						        "09:00 AM - 09:30 AM",
-						        "10:00 AM - 10:30 AM",
-						        "11:00 AM - 11:30 AM",
-						        "01:00 PM - 01:30 PM",
-						        "02:00 PM - 02:30 PM",
-						        "03:00 PM - 03:30 PM",
-						      ];
-						
-						      const timeSlotsContainer = document.getElementById("timeSlots");
-						      const dateInput = document.getElementById("date");
-						      const confirmationText = document.getElementById("confirmationText");
-						      const selectedDateSpan = document.getElementById("selectedDate");
-						      const selectedTimeSpan = document.getElementById("selectedTime");
-						      const submitButton = document.getElementById("submitButton");
-						
-						      // Set the minimum date to today
-						      const today = new Date().toISOString().split("T")[0];
-						      dateInput.setAttribute("min", today);
-						
-						      let selectedTimeSlot = null;
-						
-						      // Function to update confirmation message
-						      const updateConfirmationMessage = () => {
-						        const selectedDate = dateInput.value;
-						        if (selectedDate && selectedTimeSlot) {
-						          confirmationText.style.display = "block";
-						          selectedDateSpan.textContent = selectedDate;
-						          selectedTimeSpan.textContent = selectedTimeSlot;
-						          submitButton.disabled = false;
-						        } else {
-						          confirmationText.style.display = "none";
-						          submitButton.disabled = true;
-						        }
-						      };
-						
-						      // Function to select a time slot
-						      const selectTimeSlot = (button) => {
-						        selectedTimeSlot = button.textContent;
-						
-						        // Remove active class from all buttons
-						        document.querySelectorAll(".btn-slot").forEach((btn) => btn.classList.remove("active"));
-						
-						        // Add active class to the clicked button
-						        button.classList.add("active");
-						
-						        // Update confirmation message
-						        updateConfirmationMessage();
-						      };
-						
-						      // Generate time slot buttons
-						      timeSlots.forEach((slot) => {
-						        const button = document.createElement("button");
-						        button.type = "button";
-						        button.className = "btn btn-outline-primary btn-slot";
-						        button.textContent = slot;
-						        button.addEventListener("click", () => selectTimeSlot(button));
-						        timeSlotsContainer.appendChild(button);
-						      });
-						
-						      // Add event listener to the date input
-						      dateInput.addEventListener("change", updateConfirmationMessage);
-						
-						      // Form submit event
-						      const form = document.getElementById("appointmentForm");
-						      form.addEventListener("submit", (e) => {
-						        e.preventDefault();
-						        alert(`Appointment booked successfully on ${dateInput.value} at ${selectedTimeSlot}.`);
-						      });
-						    });
-						  </script>
-						
-						<script>
-						    function showLoginForm() {
-						        document.getElementById('loginform').style.display = 'block';
-						        window.scrollTo(0, document.getElementById('loginform').offsetTop);
-						    }
-						</script>
-						
-						
-						
-						<script>
-						function moveToNext(current, nextId) {
-						    if (current.value.length === current.maxLength) {
-						        const next = document.getElementById(nextId);
-						        if (next) next.focus();
-						    }
-						}
-						</script>
-						
-						
-						<script>
-						let otpTimerInterval;
-						
-						function checkPhoneNumber() {
-						    // Enable the "Send OTP" button only if the phone number is valid (10 digits)
-						    var phoneNumber = document.getElementById("phone").value;
-						    /* alert(phoneNumber) */
-						    /* document.getElementById("Newphonenumber").value = phoneNumber; */
-						 // Making the input read-only
-						   /* document.getElementById("Newphonenumber").readOnly = true; */
-						    
-						    if (phoneNumber.length === 10) {
-						        document.getElementById("sendOtpBtnContainer").style.display = "block";
-						    } else {
-						        document.getElementById("sendOtpBtnContainer").style.display = "none";
-						    }
-						}
-						
-						function sendOtp() {
-						    document.getElementById("sendOtpBtn").disabled = true;
-						    document.getElementById("sendOtpBtn").classList.add("disabled");
-						    document.getElementById("otpTimer").style.display = "inline-block";
-						    startOtpTimer();
-						
-						    var countryDigit = document.getElementById("country").value;
-						    var phoneDigit = document.getElementById("phone").value;
-						    var finalNumber = countryDigit + phoneDigit;
-						
-						    if (!phoneDigit.match(/^\d{10}$/)) {
-						        alert('Please enter a valid 10-digit phone number.');
-						        return;
-						    }
-						
-						    fetch('/send-otp-index-search', {
-						        method: 'POST',
-						        headers: { 'Content-Type': 'application/json' },
-						        body: JSON.stringify({
-						            paphoneNumber: finalNumber,
-						            userType: "Index Search",
-						            doctorWindowId: document.getElementById("doctorWindowId").value,
-						            drFName: document.getElementById("drFName").value,
-						            drLName: document.getElementById("drLName").value,
-						            drphoneNumber: document.getElementById("phoneNumber").value
-						        })
-						    })
-						    .then(response => response.json())
-						    .then(data => {
-						        if (data.message && data.message.includes("OTP sent successfully")) {
-						            alert(data.message);
-						            document.getElementById("otpSection").style.display = "block";
-						            document.getElementById("confirmOtpBtn").style.display = "inline-block";
-						        } else if (data.message && data.message.includes("Patient not found")) {
-						            // If patient is not found, show the input fields
-						            alert(data.message);
-						            if (data.showInputFields) {
-						                document.getElementById("patientDetailsSection").style.display = "block";  // Show the section for entering patient details
-						            }
-						        } else {
-						            alert('Error sending OTP: ' + data.message);
-						        }
-						    })
-						    .catch(error => alert('An error occurred while sending the OTP: ' + error.message));
-						}
-						
-						function submitPatientDetails() {
-						    var patientFirstName = document.getElementById("patientFirstName").value;
-						    var patientLastName = document.getElementById("patientLastName").value;
-						
-						    var countryDigit = document.getElementById("country").value;
-						    var phoneDigit = document.getElementById("phone").value;
-						    var patientPhoneNumber = countryDigit + phoneDigit;
-						
-						    var otp = document.getElementById("otp").value;  // Get OTP from the input field
-						    var confirmOtp = document.getElementById("confirmOtp").value;  // Get Confirm OTP
-						
-						    /* alert("firstName: " + patientFirstName);
-						    alert("lastName: " + patientLastName);
-						    alert("phoneNumber: " + patientPhoneNumber); */
-						
-						    if (!patientFirstName || !patientLastName) {
-						        alert("Please fill in both the first and last name.");
-						        return;
-						    }
-						
-						    if (otp !== confirmOtp) {
-						        alert("OTP and Confirm OTP do not match.");
-						        return;  // Stop submission if OTPs don't match
-						    }
-						
-						    fetch('/create-profile-indexpage', {
-						        method: 'POST',
-						        headers: { 'Content-Type': 'application/json' },
-						        body: JSON.stringify({
-						            patientFirstName: patientFirstName,
-						            patientLastName: patientLastName,
-						            patientPhoneNumber: patientPhoneNumber,
-						            otp: otp  // Include OTP in the request
-						        })
-						    })
-						    .then(response => {
-						        if (!response.ok) {
-						            return response.text().then(text => { throw new Error(text); });
-						        }
-						        return response.json();
-						    })
-						    .then(data => {
-						        if (data.message) {
-						            alert(data.message);
-						        }
-						    })
-						    .catch(error => {
-						        console.error('Error:', error);
-						        alert('An error occurred while submitting patient details: ' + error.message);
-						    });
-						}
-						
-						
-						function confirmOtp() {
-						    var otp = document.getElementById("otp1").value + document.getElementById("otp2").value + document.getElementById("otp3").value + document.getElementById("otp4").value;
-						
-						    if (otp.length !== 4 || !otp.match(/^\d{4}$/)) {
-						        alert("Please enter a valid 4-digit OTP.");
-						        return;
-						    }
-						
-						    var countryDigit = document.getElementById("country").value;
-						    var phoneDigit = document.getElementById("phone").value;
-						    var finalNumber = countryDigit + phoneDigit;
-						
-						    fetch('/verify-otp-index-search', {
-						        method: 'POST',
-						        headers: { 'Content-Type': 'application/json' },
-						        body: JSON.stringify({ paphoneNumber: finalNumber, otp: otp })
-						    })
-						    .then(response => response.json())
-						    .then(data => {
-						        if (data.success) {
-						        	  // Stop OTP timer
-						            clearInterval(otpTimerInterval);
-						
-						            // Disable Resend OTP button
-						            document.getElementById("sendOtpBtn").disabled = true;
-						            document.getElementById("sendOtpBtn").classList.add("disabled");
-						            
-						            document.getElementById('loginform').style.display = 'none';
-						            document.getElementById("patientDetailsSection").style.display = "none";  
-						
-						            // Hide OTP section and button
-						            document.getElementById("otpSection").style.display = "none";
-						            document.getElementById("confirmOtpBtn").style.display = "none";
-						       
-						            // Display the success message
-						            const messageContainer = document.getElementById("messageContainer");
-						            messageContainer.innerHTML = `
-						                <div class="alert alert-success">
-						                    <strong>Success!</strong> ${data.message}
-						                </div>
-						            `;
-						            messageContainer.style.display = "block";
-						        } else {
-						            alert(data.message || 'Invalid OTP, please try again.');
-						        }
-						    })
-						    .catch(error => {
-						        alert('An error occurred while verifying the OTP: ' + error.message);
-						    });
-						}
-						
-						
-						
-						
-						
-						function startOtpTimer() {
-						    let countdown = 60;  // 1 minute countdown
-						    document.getElementById("otpTimer").textContent = `Resend OTP in: ${countdown}s`;
-						
-						    otpTimerInterval = setInterval(function() {
-						        countdown--;
-						        document.getElementById("otpTimer").textContent = `Resend OTP in: ${countdown}s`;
-						
-						        if (countdown <= 0) {
-						            clearInterval(otpTimerInterval);
-						            document.getElementById("sendOtpBtn").disabled = false;
-						            document.getElementById("sendOtpBtn").classList.remove("disabled");
-						            document.getElementById("otpTimer").textContent = "You can resend OTP now.";
-						        }
-						    }, 1000);
-						}
-						
-						function moveToNext(current, nextId) {
-						    // Auto-focus to the next input after entering a digit
-						    if (current.value.length === current.maxLength) {
-						        const next = document.getElementById(nextId);
-						        if (next) next.focus();
-						    }
-						}
-						
-						</script>
-
+</head>
 
 <body>
 
 	<!-- Main Wrapper -->
-<div class="main-wrapper">
+	<div class="main-wrapper">
 
 		<!-- Header -->
-			
+		<header class="header header-custom header-fixed header-one">
+			<div class="container">
+				<nav class="navbar navbar-expand-lg header-nav">
+					<div class="navbar-header">
+						<a id="mobile_btn" href="javascript:void(0);">
+							<span class="bar-icon">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</a>
+						<a href="index.html" class="navbar-brand logo">
+							<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+						</a>
+					</div>
+					<div class="main-menu-wrapper">
+						<div class="menu-header">
+							<a href="index.html" class="menu-logo">
+								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+							</a>
+							<a id="menu_close" class="menu-close" href="javascript:void(0);">
+								<i class="fas fa-times"></i>
+							</a>
+						</div>
+						<ul class="main-nav">
+							<li class="has-submenu megamenu">
+								<a href="index.html">Home</i></a>
+								
+							</li>
+							<li class="has-submenu">
+								<a href="javascript:void(0);">Doctors <i class="fas fa-chevron-down"></i></a>
+								<ul class="submenu">
+									<li><a href="doctor-dashboard.html">Doctor Dashboard</a></li>
+									
+									<li><a href="blog-details.html">Blog's</a></li>
+								</ul>
+							</li>
+							<li class="has-submenu active">
+								<a href="javascript:void(0);">Patients <i class="fas fa-chevron-down"></i></a>
+								<ul class="submenu">
+									<li class="active"><a href="patient-dashboard.html">Patient Dashboard</a></li>
+									
+									<li>
+										<a href="search.html">Search Doctor</a>
+										
+									</li>
+									
+									<li><a href="blog-details.html">Blog's</a></li>
+								</ul>
+							</li>
+							
+							<li class="has-submenu">
+								<a href="#">Admin <i class="fas fa-chevron-down"></i></a>
+								<ul class="submenu">
+									<li><a href="admin/index.html" target="_blank">Admin</a></li>
+									<!--<li><a href="pharmacy/index.html" target="_blank">Pharmacy Admin</a></li>-->
+								</ul>
+							</li>
+							<li class="searchbar">
+								<a href="javascript:void(0);"><i class="feather-search"></i></a>
+								<div class="togglesearch">
+									<form action="search.html">
+										<div class="input-group">
+											<input type="text" class="form-control">
+											<button type="submit" class="btn">Search</button>
+										</div>
+									</form>
+								</div>
+							</li>
+							<li class="login-link"><a href="login.html">Login / Signup</a></li>
+							<li class="register-btn">
+								<a href="register.html" class="btn reg-btn"><i class="feather-user"></i>Register</a>
+							</li>
+							<li class="register-btn">
+								<a href="login.html" class="btn btn-primary log-btn"><i
+										class="feather-lock"></i>Login</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
 		<!-- /Header -->
+
 		<!-- Breadcrumb -->
 		<div class="breadcrumb-bar-two">
 			<div class="container">
@@ -524,263 +155,238 @@
 			</div>
 		</div>
 		<!-- /Breadcrumb -->
+
 		<!-- Page Content -->
-			<div class="content">
-				<div class="container">
-				    <div class="row">
-				        <div class="row">
-				            <div class="col-md-12 col-lg-8 col-xl-9">
-				                <div th:if="${status == 'success'}">
-				                    <p th:text="${message}"></p>
-				                    <div th:if="${doctorDetails}">
-				                        <div th:each="doctor : ${doctorDetails}">
-				                            <div class="card">
-				                                <div class="card-body">
-				                                    <div class="doctor-widget">
-				                                        <div class="doc-info-left">
-				                                            <div class="doctor-img">
-				                                                <a href="doctor-profile.html">
-				                                                    <img src="assets/img/doctors/doctor-thumb-01.jpg" class="img-fluid" alt="User Image">
-				                                                </a>
-				                                            </div>
-				                                            <div class="doc-info-cont">
-				                                                <h4 class="doc-name">
-				                                                    <a href="doctor-profile.html" th:text="${doctor.drFName} + ' ' + ${doctor.drLName}"></a>
-				                                                </h4>
-				                                                <p class="doc-speciality">
-				                                                    <span th:each="specialty : ${doctor.selectedSpecialties}" class="specialty-box" th:text="${specialty.specialtyName}">Specialty</span>
-				                                                </p>
-				                                                <h5 class="doc-department">
-				                                                    <img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality"> Dentist
-				                                                </h5>
-				                                                
-				                                                <!-- Hidden input field -->
-																<input type="hidden" id="drFName" th:value="${doctor.drFName}" />
-																<input type="hidden" id="drLName" th:value="${doctor.drLName}" />
-																<input type="hidden" id="doctorWindowId" th:value="${doctor.doctorWindowId} " />
-																<input type="hidden" id="phoneNumber" th:value="${doctor.phoneNumber} " />
-				                                                
-				                                                <div class="rating">
-				                                                    <i class="fas fa-star filled"></i>
-				                                                    <i class="fas fa-star filled"></i>
-				                                                    <i class="fas fa-star filled"></i>
-				                                                    <i class="fas fa-star filled"></i>
-				                                                    <i class="fas fa-star"></i>
-				                                                    <span class="d-inline-block average-rating" th:text="${doctor.userType}"></span>
-				                                                </div>
-				                                                <div class="clinic-details">
-				                                                    <p class="doc-location">
-				                                                        <i class="fas fa-map-marker-alt"></i>
-				                                                        <span th:each="clinicDetails : ${doctor.data}" class="clinic-box" 
-				                                                              th:text="${clinicDetails.address} + ', ' + ${clinicDetails.address2} + ', ' + ${clinicDetails.zipcode} + ', ' + ${clinicDetails.city} + ', ' + ${clinicDetails.state}"></span>
-				                                                    </p>
-				                                                </div>
-				                                                <div class="clinic-services">
-				                                                    <span>Dental Fillings</span>
-				                                                    <span>Whitening</span>
-				                                                </div>
-				                                            </div>
-				                                        </div>
-				                                        <div class="doc-info-right">
-				                                            <div class="clini-infos">
-				                                                <ul>
-				                                                    <li><i class="far fa-thumbs-up"></i> 98%</li>
-				                                                    <li><i class="far fa-comment"></i> 17 Feedback</li>
-				                                                    <li><i class="fas fa-map-marker-alt"></i> Florida, USA</li>
-				                                                    <li><i class="far fa-money-bill-alt"></i> $300 - $1000 <i class="fas fa-info-circle" data-bs-toggle="tooltip" title="Lorem Ipsum"></i></li>
-				                                                </ul>
-				                                            </div>
-				                                            <div class="clinic-booking">
-				                                                <a class="view-pro-btn" href="doctor-profile.html">View Profile</a>
-				                                                <a href="javascript:void(0);" 
-				                                                   class="apt-btn"
-				                                                   onclick="showPopup()">Book Appointment</a>
-				                                            </div>
-				                                        </div>
-				                                    </div>
-				                                </div>
-				                            </div>
-				                        </div>
-				                        <div class="load-more text-center">
-				                            <a class="btn btn-primary btn-sm prime-btn" href="javascript:void(0);">Load More</a>
-				                        </div>
-				                    </div>
-				                </div>
-				            </div>
-				            <div class="col-md-12 col-lg-3" id="messageContainer" style="display: none;"></div>
-				            <!-- Login Form -->
-				          <!-- Trigger Button -->
-							<!-- <div class="text-center mt-5">
-							    <button class="btn btn-primary" onclick="showPopup()">Open Login Form</button>
-							</div> -->
-							
-							<!-- Popup Modal -->
-							<style>
-        /* Modal Background */
-        #popupModal {
-            display: none;
-            position: fixed;
-            z-index: 1050;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-        }
+		<div class="content">
+			<div class="container">
 
-        /* Modal Content */
-        #popupContent {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 1000px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-        }
+				<div class="row">
+					<div class="col-md-12 col-lg-12 col-xl-8">
 
-        .close-btn {
-            float: right;
-            font-size: 1.5rem;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .left-column, .right-column {
-            flex: 1;
-        }
-
-        .left-column {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .left-column img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-           /* Freeze body scroll when popup is active */
-        .no-scroll {
-            overflow: hidden;
-        }
-
-        .separator-line {
-            height: auto;
-            width: 1px;
-            background-color: #ccc;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .separator-line {
-                display: none;
-            }
-        }
-    </style>  <!-- Button to Open Popup -->
-    <button class="btn btn-primary" onclick="showPopup()">Open Popup</button>
-
-    <!-- Popup Modal -->
-    <div id="popupModal">
-        <div id="popupContent">
-            <span class="close-btn" onclick="hidePopup()">&times;</span>
-            <div class="container">
-                <!-- Left Column -->
-                <div class="left-column text-center">
-                    <img src="https://via.placeholder.com/150" alt="Profile Image">
-                    <p><strong>John Doe</strong></p>
-                </div>
-
-                <div class="separator-line"></div>
-
-                <!-- Right Column -->
-                <div class="right-column">
-                    <form id="loginForm" class="p-3 shadow-sm rounded">
-                        <h3 class="text-center mb-4" id="appointment-header">Confirm Your Appointment</h3>
-							
-							<!-- Date Selection -->
-                        <div class="mb-3">
-                            <label for="date" class="form-label">Select Date:</label>
-                            <input type="date" id="date" class="form-control" required>
-                        </div>
-
-                        <!-- Time Slots -->
-                        <div class="mb-3">
-                            <label class="form-label">Select Time Slot:</label>
-                            <div id="timeSlots" class="d-flex flex-wrap gap-2"></div>
-                        </div>
-
-                        <!-- Country Selection -->
-                        <div class="mb-3">
-                            <label class="mb-2">Country</label>
-                            <select class="form-control form-control-lg group_formcontrol" id="country" name="country" required>
-                                <option value="0">Select country</option>
-                                <option value="+1">United States</option>
-                                <option value="+91" selected>India</option>
-                            </select>
-                        </div>
-
-                        <!-- Phone Number Input -->
-                       <div class="mb-3">
-							            <label class="mb-2">Phone Number</label>
-							            <input 
-							                class="form-control form-control-lg group_formcontrol" id="phone" name="phone" type="text" maxlength="10" minlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"  required placeholder="Enter 10-digit phone number" onkeyup="checkPhoneNumber()">
-							        </div>
-                        
-                        <!-- Send OTP Button -->
-							        <div class="mb-3" id="sendOtpBtnContainer" style="display: none;">
-							            <button type="button" class="btn w-100 btn-primary" id="sendOtpBtn" onclick="sendOtp()">Send OTP</button>
-							            <span id="otpTimer" style="display:none; font-size: 14px; color: red; margin-top: 10px;"></span>
-							        </div>
-                        
-                        <!-- OTP Section -->
-							        <div id="otpSection" style="display: none;">
-							            <div class="mb-3">
-							                <label class="mb-2">Enter OTP</label>
-							                <div class="d-flex otp-inputs">
-							                    <input type="text" class="form-control otp-block" maxlength="1" oninput="moveToNext(this, 'otp2')" id="otp1" required>
-							                    <input type="text" class="form-control otp-block" maxlength="1" oninput="moveToNext(this, 'otp3')" id="otp2" required>
-							                    <input type="text" class="form-control otp-block" maxlength="1" oninput="moveToNext(this, 'otp4')" id="otp3" required>
-							                    <input type="text" class="form-control otp-block" maxlength="1" id="otp4" required>
-							                </div>
-							            </div>
-							            <div class="mb-3">
-							                <button class="btn w-100 btn-success" type="button" id="confirmOtpBtn" style="display: none;" onclick="confirmOtp()">Confirm OTP</button>
-							            </div>
-							        </div>
-                        <div id="confirmationText">
-                            You selected <span id="selectedDate"></span> and <span id="selectedTime"></span>. Are you sure?
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-       
-			        </div>
-			   </div>
+						<!-- Doctor Widget -->
+						<div class="card">
+							<div class="card-body" style="display: flex; justify-content: center; align-items: center; text-align: center;">
+								<div class="doctor-widget">
+									<div class="doc-info-left">
+										<div class="doctor-img">
+											<a href="doctor-profile.html">
+												<img src="assets/img/doctors/doctor-thumb-01.jpg" class="img-fluid"
+													alt="User Image">
+											</a>
+										</div>
+										<div class="doc-info-cont">
+											<h4 class="doc-name"><a href="doctor-profile.html">Dr. Ruby Perrin</a></h4>
+											<p class="doc-speciality">MDS - Periodontology and Oral Implantology, BDS
+											</p>
+											<h5 class="doc-department"><img
+													src="assets/img/specialities/specialities-05.png" class="img-fluid"
+													alt="Speciality">Dentist</h5>
+											<div class="rating">
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star filled"></i>
+												<i class="fas fa-star"></i>
+												<span class="d-inline-block average-rating">(17)</span>
+											</div>
+											<div class="clinic-details">
+												<p class="doc-location"><i class="fas fa-map-marker-alt"></i> Florida,
+													USA</p>
+												<ul class="clinic-gallery">
+													<li>
+														<a href="assets/img/features/feature-01.jpg"
+															data-fancybox="gallery">
+															<img src="assets/img/features/feature-01.jpg" alt="Feature">
+														</a>
+													</li>
+													<li>
+														<a href="assets/img/features/feature-02.jpg"
+															data-fancybox="gallery">
+															<img src="assets/img/features/feature-02.jpg" alt="Feature">
+														</a>
+													</li>
+													<li>
+														<a href="assets/img/features/feature-03.jpg"
+															data-fancybox="gallery">
+															<img src="assets/img/features/feature-03.jpg" alt="Feature">
+														</a>
+													</li>
+													<li>
+														<a href="assets/img/features/feature-04.jpg"
+															data-fancybox="gallery">
+															<img src="assets/img/features/feature-04.jpg" alt="Feature">
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div class="clinic-services">
+												<span>Dental Fillings</span>
+												<span>Whitneing</span>
+											</div>
+										</div>
+									</div>
+									<div class="doc-info-right">
+										<div class="clini-infos">
+											<ul>
+												<li><i class="far fa-thumbs-up"></i> 98%</li>
+												<li><i class="far fa-comment"></i> 17 Feedback</li>
+												<li><i class="fas fa-map-marker-alt"></i> Florida, USA</li>
+												<li><i class="far fa-money-bill-alt"></i> $300 - $1000 <i
+														class="fas fa-info-circle" data-bs-toggle="tooltip"
+														title="Lorem Ipsum"></i> </li>
+											</ul>
+										</div>
+										<div class="clinic-booking">
+											<a class="view-pro-btn" href="doctor-profile.html">View Profile</a>
+											<a class="apt-btn" href="booking.html">Book Appointment</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /Doctor Widget -->
+					</div>
+			</div>
 		</div>
-	</div>
+		<!-- /Page Content -->
+
 		<!-- Footer -->
+		<footer class="footer footer-one">
+			<div class="footer-top aos" data-aos="fade-up">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-4">
+							<div class="footer-widget footer-about">
+								<div class="footer-logo">
+									<a href="index.html"><img src="assets/img/logo-01.svg" alt="logo"></a>
+								</div>
+								<div class="footer-about-content">
+									<p> </p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="row">
+								<div class="col-lg-4 col-md-5">
+									<div class="footer-widget footer-menu">
+										<h2 class="footer-title">Company</h2>
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="search.html">Doctor’s</a></li>
+											<li><a href="onboarding-email.html">Career</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="footer-widget footer-menu">
+										<h2 class="footer-title">Centres Of Excellence</h2>
+										<ul>
+											<li><a href="Specialities.html">Specialities</a></li>
+											<li><a href="Treatment.html">Treatments</a></li>
+											<li><a href="blog-grid.html">Blog's</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6">
+									<div class="footer-widget footer-contact">
+										<h2 class="footer-title">Information</h2>
+										<div class="footer-contact-info">
+											<!--<div class="footer-address">
+												<p><i class="feather-map-pin"></i> 3556 Beech Street, USA</p>
+											</div>-->
+											<!--<div class="footer-address">
+												<p><i class="feather-phone-call"></i> 
+													<a href="tel:+918779604475">+91 8779-604-475</a>
+												</p>
+											</div>-->
+											<!--<div class="footer-address">
+												<p><i class="feather-mail"></i> 
+													<a href="mailto:contact@aucdental.com">contact@aucdental.com</a>
+												</p>
+											</div>-->
+											<div class="footer-address mt-3"> <!-- Added margin-top for spacing -->
+												<p><i class="feather-info"></i>
+													<a href="about-us.html">About Us</a>
+												</p>
+											</div>
+											<div class="footer-address mt-3"> <!-- Added margin-top for spacing -->
+												<p><i class="feather-phone"></i> <!-- Changed icon for Contact Us -->
+													<a href="contact-us.html">Contact Us</a>
+												</p>
+											</div>
+											<div class="footer-address mt-3"> <!-- Added margin-top for spacing -->
+												<p><i class="feather-help-circle"></i> <!-- Changed icon for Contact Us -->
+													<a href="faq.html">F & Q</a>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>							
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-7">
+							<div class="footer-widget">
+								<h2 class="footer-title">Join Our Newsletter</h2>
+								<div class="subscribe-form">
+									<form action="#">
+										<input type="email" class="form-control" placeholder="Enter Email">
+										<button type="submit" class="btn">Submit</button>
+									</form>
+								</div>
+								<div class="social-icon">
+									<ul>
+										<li>
+											<a href="https://www.facebook.com/aucdental"><i class="fab fa-facebook"></i></a>
+										</li>
+										<li>
+											<a href="https://www.instagram.com/aucdental/"><i class="fab fa-instagram"></i></a>
+										</li>
+										<li>
+											<a href="https://x.com/aucdental"><i class="fab fa-twitter"></i></a>
+										</li>
+										<li>
+											<a href="https://www.linkedin.com/showcase/battis-daanto-ki-seva/;"><i class="fab fa-linkedin-in"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container">
+					<!-- Copyright -->
+					<div class="copyright">
+						<div class="row">
+							<div class="col-md-6 col-lg-6">
+								<div class="copyright-text">
+									<p class="mb-0">Copyright © 2024 Battis Daanto Ki Seva, All rights reserved.</p>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6">
+
+								<!-- Copyright Menu -->
+								<div class="copyright-menu">
+									<ul class="policy-menu">
+										<li><a href="privacy-policy.html">Privacy Policy</a></li>
+										<li><a href="terms-condition.html">Terms & Conditions</a></li>
+										<li><a href="Cancellation_&_Refund.html">Cancellation & Refund</a></li>
+										<li><a href="Shipping and Exchange.html">Shipping & Exchange</a></li>
+									</ul>
+								</div>
+								<!-- /Copyright Menu -->
+
+							</div>
+						</div>
+					</div>
+					<!-- /Copyright -->
+				</div>
+			</div>
+		</footer>
 		<!-- /Footer -->
-	
-</div>
+
+	</div>
 	<!-- /Main Wrapper -->
 
 	<!-- jQuery -->

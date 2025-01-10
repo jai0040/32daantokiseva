@@ -1374,17 +1374,38 @@ input:checked + .slider:before {
 							</ul>							
 						</div>
 						<div class="view-prescribe-details">
-							<div class="hospital-addr">
+							<div class="hospital-addr d-flex">
 								<div class="invoice-logo">
-									<img src="assets/img/text.svg" alt="logo">
+									<img src="assets/img/AUC-Dental-removebg-preview.png" alt="logo">
+								</div>
+								<div class="invoice-logo special-logo">
+									<img src="assets/img/text-removebg-preview.png" alt="logo">
 								</div>
 								<div class="invoice-logo">
-									<img src="assets/img/AUC-Dental.svg" alt="logo">
-								</div>
-								<div class="invoice-logo">
-									<img src="assets/img/32daanto.svg" alt="logo">
+									<img src="assets/img/32daanto-removebg-preview.png" alt="logo">
 								</div>
 							</div>
+							
+							<style>
+							.hospital-addr {
+								display: flex; /* Use flexbox for side-by-side alignment */
+								justify-content: space-between; /* Optional: Adjust spacing between images */
+								align-items: center; /* Ensure vertical alignment */
+								gap: 20px; /* Add spacing between images */
+							}
+							
+							.invoice-logo img {
+								height: 200px; /* Default height for other images */
+								width: 200px; /* Default width for other images */
+								object-fit: contain; /* Ensure the images fit nicely within the dimensions */
+							}
+							
+							/* Target the specific image to increase its size */
+							.special-logo img {
+								height: 200px; /* Increased height for the specific image */
+								width: 200px; /* Increased width for the specific image */
+							}
+							</style>
 							
 							<!-- Invoice Item -->
 							<div class="invoice-item">

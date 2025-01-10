@@ -94,41 +94,6 @@
 									<li><a href="blog-details.html">Blog's</a></li>
 								</ul>
 							</li>
-							<!--<li class="has-submenu active">
-								<a href="javascript:void(0);">Pages <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li><a href="about-us.html">About Us</a></li>
-									<li><a href="contact-us.html">Contact Us</a></li>
-									<li class="has-submenu">
-										<a href="javascript:void(0);">Call</a>
-										<ul class="submenu inner-submenu">
-											<li><a href="voice-call.html">Voice Call</a></li>
-											<li><a href="video-call.html">Video Call</a></li>
-										</ul>
-									</li>
-									<li class="has-submenu active">
-										<a href="javascript:void(0);">Invoices</a>
-										<ul class="submenu inner-submenu">
-											<li class="active"><a href="invoices.html">Invoices</a></li>
-											<li><a href="invoice-view.html">Invoice View</a></li>
-										</ul>
-									</li>
-									<li class="has-submenu">
-										<a href="javascript:void(0);">Authentication</a>
-										<ul class="submenu inner-submenu">
-											<li><a href="login-email.html">Login Email</a></li>
-											<li><a href="login-phone.html">Login Phone</a></li>
-										</ul>
-									</li>
-									<li><a href="terms-condition.html">Terms & Condition</a></li>
-								</ul>
-							</li>-->
-							<!--<li class="has-submenu">
-								<a href="#">Blog <i class="fas fa-chevron-down"></i></a>
-								<ul class="submenu">
-									<li><a href="blog-grid.html">Blog's</a></li>
-								</ul>
-							</li>-->
 							<li>
 								<a href="admin/index.html">Admin</a>
 							</li>
@@ -754,19 +719,6 @@
 									<div class="footer-widget footer-contact">
 										<h2 class="footer-title">Information</h2>
 										<div class="footer-contact-info">
-											<!--<div class="footer-address">
-												<p><i class="feather-map-pin"></i> 3556 Beech Street, USA</p>
-											</div>-->
-											<!--<div class="footer-address">
-												<p><i class="feather-phone-call"></i> 
-													<a href="tel:+918779604475">+91 8779-604-475</a>
-												</p>
-											</div>-->
-											<!--<div class="footer-address">
-												<p><i class="feather-mail"></i> 
-													<a href="mailto:contact@aucdental.com">contact@aucdental.com</a>
-												</p>
-											</div>-->
 											<div class="footer-address mt-3"> <!-- Added margin-top for spacing -->
 												<p><i class="feather-info"></i>
 													<a href="about-us.html">About Us</a>
@@ -864,33 +816,72 @@
 				</div>
 				<div class="modal-body pb-0">
 					<div class="prescribe-download">
-						<h5>21 Mar 2024</h5>
+						<h5></h5>
 						<ul>
-							<li><a href="javascript:void(0);" class="print-link"><i class="fa-solid fa-print"></i></a></li>
-							<li><a href="#" class="btn btn-primary prime-btn">Download</a></li>
+							<li><a href="javascript:void(0);" id="download-prescription" class="btn btn-primary prime-btn">Download</a></li>
 						</ul>
 					</div>
 					<div class="view-prescribe invoice-content">
-						<div class="invoice-item">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="invoice-logo">
-										<img src="assets/img/logo.png" alt="logo">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<p class="invoice-details">
-										<strong>Invoice No : </strong> #INV005<br>
-										<strong>Issued:</strong> 21 Mar 2024
-									</p>
-								</div>
+						<div class="hospital-addr d-flex">
+							<div class="invoice-logo">
+								<img src="assets/img/AUC-Dental-removebg-preview.png" alt="logo">
+							</div>
+							<div class="invoice-logo special-logo">
+								<img src="assets/img/text-removebg-preview.png" alt="logo">
+							</div>
+							<div class="invoice-logo">
+								<img src="assets/img/32daanto-removebg-preview.png" alt="logo">
 							</div>
 						</div>
-
+						
+						<style>
+						/* Hospital Address Container */
+						.hospital-addr {
+							display: flex; /* Align logos side by side */
+							justify-content: space-between; /* Add space between images */
+							align-items: center; /* Center align images vertically */
+							gap: 16px; /* Add spacing between images */
+							width: 100%; /* Ensure full-width container */
+							background: none; /* Remove any background */
+							border: none; /* Remove any border */
+							padding: 0; /* Remove any padding */
+							margin: 0; /* Remove any margin */
+							box-shadow: none; /* Ensure no shadow is applied */
+						}
+						
+						/* Invoice Logo Wrapper */
+						.invoice-logo {
+							flex: 1; /* Allow child elements to grow equally */
+							text-align: center; /* Center align images */
+							background: none; /* Remove any background */
+							border: none; /* Remove any border */
+							padding: 0; /* Remove padding inside */
+							margin: 0; /* Remove margin around */
+							box-shadow: none; /* Ensure no shadow is applied */
+						}
+						
+						/* Invoice Images */
+						.invoice-logo img {
+							height: 130px !important; /* Set height for standard images */
+							width: 130px !important; /* Set width for standard images */
+							object-fit: contain; /* Ensure images fit nicely */
+							border: none; /* Remove image borders */
+						}
+						
+						/* Special Logo */
+						.special-logo img {
+							height: 170px !important; /* Set height for special image */
+							width: 170px !important; /* Set width for special image */
+							border: none; /* Ensure no border */
+						}
+						</style>
+						
+						</div>
 						<!-- Invoice Item -->
+						<br>	
 						<div class="invoice-item">
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-3">
 									<div class="invoice-info">
 										<h6 class="customer-text">Billing From</h6>
 										<p class="invoice-details invoice-details-two">
@@ -900,7 +891,7 @@
 										</p>
 									</div>
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-3">
 									<div class="invoice-info">
 										<h6 class="customer-text">Billing To</h6>
 										<p class="invoice-details invoice-details-two">
@@ -910,7 +901,7 @@
 										</p>
 									</div>
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-3">
 									<div class="invoice-info invoice-info2">
 										<h6 class="customer-text">Payment Method</h6>
 										<p class="invoice-details">
@@ -919,6 +910,12 @@
 											HDFC Bank<br>
 										</p>
 									</div>
+								</div>
+								<div class="col-md-3">
+									<p class="invoice-details">
+										<strong>Invoice No : </strong> #INV005<br>
+										<strong>Issued:</strong> 21 Mar 2024
+									</p>
 								</div>
 							</div>
 						</div>

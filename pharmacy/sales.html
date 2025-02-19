@@ -123,7 +123,7 @@
 													<img class="avatar-img rounded-circle" alt="User Image" src="assets/img/profiles/avatar-02.jpg">
 												</span>
 												<div class="media-body flex-grow-1">
-												<p class="noti-details"><span class="noti-title">Travis Trimble</span> sent a amount of $210 for his <span class="noti-title">appointment</span></p>
+												<p class="noti-details"><span class="noti-title">Travis Trimble</span> sent a amount of ₹210 for his <span class="noti-title">appointment</span></p>
 												<p class="noti-time"><span class="notification-time">8 mins ago</span></p>
 												</div>
 											</div>
@@ -265,22 +265,64 @@
 							<div class="card">
 								<div class="card-body">
 									<div class="table-responsive">
+										<div class="header-controls" style="display: flex; align-items: center; gap: 20px; padding: 10px;">
+											<!-- Search Bar -->
+											<div class="input-block dash-search-input" style="position: relative;">
+												<input type="text" id="search-bar" class="form-control" placeholder="Search Doctor Name" 
+													style="width: 250px; padding: 10px 40px 10px 15px; font-size: 14px; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);">
+												<span class="search-icon" 
+													style="position: absolute; top: 50%; right: 15px; transform: translateY(-50%); font-size: 16px; color: #666;">
+													<i class="fa-solid fa-magnifying-glass"></i>
+												</span>
+											</div>
+										
+											<!-- Date Picker -->
+											<div class="input-block dash-date-picker">
+												<input type="date" id="date-picker" class="form-control" 
+													style="width: 200px; padding: 10px; font-size: 14px; border: 1px solid #ddd; border-radius: 6px; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);">
+											</div>
+										</div>
+										
+										<script>
+											// JavaScript for Auto Search on Date Change
+											document.getElementById('date-picker').addEventListener('change', function () {
+												const selectedDate = this.value; // Get the selected date
+												autoSearch(selectedDate);
+											});
+										
+											function autoSearch(date) {
+												const searchBar = document.getElementById('search-bar');
+												searchBar.value = `Searching for ${date}...`;
+												console.log(`Searching for records on: ${date}`);
+												// You can add an API call or perform actual search logic here.
+												setTimeout(() => {
+													searchBar.value = ''; // Reset the search bar after the search
+												}, 2000);
+											}
+										</script>
+
 										<table class="datatable table table-hover table-center mb-0">
 											<thead>
 												<tr>
-													<th>Invoice No</th>
-													<th>Medicine Name</th>
-													<th>Total Price</th>
-													<th>Date</th>
+													<th>Payment ID</th>
+													<th>Payment Date</th>
+													<th>Patient Name</th>
+													<th>Doctor Name</th>
+													<th>Doctor Charges</th>
+													<th>Platform Charges</th>
+													<th>Total</th>
 													<th>Action</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
-													<td>20170001</td>
-													<td>Abilify,Actamin,Actamin</td>
-													<td>$220</td>
-													<td>12-5-2020</td>
+													<td>#AC-1234</td>
+													<td>24 Mar 2024</td>
+													<td>Gaurav Parikh</td>
+													<td>Dr Edalin Hendry</td>
+													<td>₹1000</td>
+													<td>₹800</td>
+													<td>₹200</td>
 													<td>
 														<div class="actions">
 															<a class="btn btn-sm bg-success-light" data-bs-toggle="modal" href="#edit_invoice_report">
@@ -296,10 +338,13 @@
 													</td>
 												</tr>
 												<tr>
-													<td>20169999</td>
-													<td>Abilify,Actamin</td>
-													<td>$100</td>
-													<td>13-5-2020</td>
+													<td>#AC-1235</td>
+													<td>28 Mar 2024</td>
+													<td>Ramlal Mohanbhai Panchal</td>
+													<td>Dr Indrani Thakkar</td>
+													<td>₹112100</td>
+													<td>₹22420</td>
+													<td>₹89680</td>
 													<td>
 														<div class="actions">
 															<a class="btn btn-sm bg-success-light" data-bs-toggle="modal" href="#edit_invoice_report">
@@ -315,10 +360,13 @@
 													</td>
 												</tr>
 												<tr>
-													<td>20169998</td>
-													<td>Abilify</td>
-													<td>$150</td>
-													<td>14-5-2020</td>
+													<td>#AC-1236</td>
+													<td>02 Apr 2024</td>
+													<td>Dev Rajubhai Prajapati</td>
+													<td>Dr Deval</td>
+													<td>₹80000</td>
+													<td>₹16000</td>
+													<td>₹64000</td>
 													<td>
 														<div class="actions">
 															<a class="btn btn-sm bg-success-light" data-bs-toggle="modal" href="#edit_invoice_report">
@@ -334,10 +382,35 @@
 													</td>
 												</tr>
 												<tr>
-													<td>20170001</td>
-													<td>Abilify,Actamin,Actamin</td>
-													<td>$220</td>
-													<td>15-5-2020</td>
+													<td>#AC-1237</td>
+													<td>10 Apr 2024</td>
+													<td>Manish Suthar</td>
+													<td>Dr Sudhansu Mistri</td>
+													<td>₹55000</td>
+													<td>₹44000</td>
+													<td>₹11000</td>
+													<td>
+														<div class="actions">
+															<a class="btn btn-sm bg-success-light" data-bs-toggle="modal" href="#edit_invoice_report">
+																<i class="fe fe-pencil"></i> Edit
+															</a>
+															<a class="btn btn-sm bg-default-light" href="invoice.html">
+																<i class="fas fa-file-alt"></i> Invoice
+															</a>
+															<a href="javascript:void(0);" class="btn btn-sm bg-danger-light" data-bs-toggle="modal" data-bs-target="#deleteConfirmModal">
+																<i class="fe fe-trash"></i> Delete
+															</a>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>#AC-1238</td>
+													<td>16 Apr 2024</td>
+													<td>Huzefa shaikh</td>
+													<td>Dr Priyanshi Panchal</td>
+													<td>₹10000</td>
+													<td>₹8000</td>
+													<td>₹2000</td>
 													<td>
 														<div class="actions">
 															<a class="btn btn-sm bg-success-light" data-bs-toggle="modal" href="#edit_invoice_report">
@@ -394,7 +467,7 @@
 								<div class="col-12 col-sm-6">
 									<div class="mb-3">
 										<label class="mb-2">Total Amount</label>
-										<input type="text"  class="form-control" value="$150.00">
+										<input type="text"  class="form-control" value="₹150.00">
 									</div>
 								</div>
 								<div class="col-12 col-sm-6">
